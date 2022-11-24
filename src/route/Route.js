@@ -2,9 +2,8 @@
 
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
+import Category from '../Page/Category/Category';
 import HomePage from '../Page/HomePage/HomePage';
-import ServicePage from '../Page/ServicePage/ServicePage';
-import Services from '../Page/Services/Services';
 
 export const router = createBrowserRouter([
   {
@@ -14,11 +13,15 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage />,
+        loader: async () => {
+          return fetch('http://localhost:5000/category');
+        },
       },
       {
-        path: '/service',
-        element: <ServicePage />,
+        path: '/category/:id',
+        element: <Category />,
       },
+
       //   {
       //     path: '/services',
       //     element: <Services />,

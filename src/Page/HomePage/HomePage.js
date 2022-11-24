@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Sell from './img/3.png';
 import Img2 from './img/2.png';
 import Img1 from './img/1.png';
@@ -11,6 +11,7 @@ import Lenovo from './img/lenovo.png';
 import './HomePage.css';
 
 const HomePage = () => {
+  const categories = useLoaderData();
   return (
     <div className='container'>
       {/* banner */}
@@ -84,21 +85,21 @@ const HomePage = () => {
                   >
                     <img
                       src={Sell}
-                      className='d-block w-100 img-fluid rounded-3'
+                      className='d-block w-100 img-fluid  rounded-4'
                       alt='...'
                     />
                   </div>
                   <div className='carousel-item' data-bs-interval='2000'>
                     <img
                       src={Img1}
-                      className='d-block w-100 img-fluid rounded-3'
+                      className='d-block w-100 img-fluid  rounded-4'
                       alt='...'
                     />
                   </div>
                   <div className='carousel-item'>
                     <img
                       src={Img2}
-                      className='d-block w-100 img-fluid rounded-3'
+                      className='d-block w-100 img-fluid  rounded-4'
                       alt='...'
                     />
                   </div>
@@ -137,21 +138,33 @@ const HomePage = () => {
       <div className='two-sections container mt-5'>
         <div className='row'>
           <h2 className='text-center mt-4 mb-3'>Category By Brand</h2>
-          <div className='col-lg-4 zoom mouse-pointer'>
+          {categories.map((category) => {
+            return (
+              <Link to='/category/:id' className='col-lg-4 zoom mouse-pointer'>
+                <div
+                  key={category._id}
+                  className='h-75 p-5 shadow bg-light rounded-3 d-flex justify-content-center align-items-center'
+                >
+                  <img className='h-75 img-fluid' src={category.img} alt='' />
+                </div>
+              </Link>
+            );
+          })}
+          {/* <Link to='/category/:id' className='col-lg-4 zoom mouse-pointer'>
             <div className='h-75 p-5 shadow bg-light rounded-3 d-flex justify-content-center align-items-center'>
               <img className='h-75 img-fluid' src={Dell} alt='' />
             </div>
-          </div>
-          <div className='col-lg-4 zoom mouse-pointer'>
+          </Link>
+          <Link to='/category/:id' className='col-lg-4 zoom mouse-pointer'>
             <div className='h-75 p-5 shadow bg-light rounded-3 d-flex justify-content-center align-items-center'>
               <img className='h-75 img-fluid' src={Hp} alt='' />
             </div>
-          </div>
-          <div className='col-lg-4 zoom mouse-pointer'>
+          </Link>
+          <Link to='/category/:id' className='col-lg-4 zoom mouse-pointer'>
             <div className='h-75 p-5 shadow bg-light rounded-3 d-flex justify-content-center align-items-center'>
               <img className='h-75 img-fluid' src={Lenovo} alt='' />
             </div>
-          </div>
+          </Link> */}
         </div>
       </div>
       {/* jumbotron */}
