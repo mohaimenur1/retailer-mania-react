@@ -1,10 +1,12 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import BookingModal from "../../components/BookingModal/BookingModal";
 import CateygoryCard from "../../components/CategoryCard/CateygoryCard";
 
 const Category = () => {
+  const [product, setProduct] = useState(null);
   const catItems = useLoaderData();
   return (
     <div className="container">
@@ -13,9 +15,12 @@ const Category = () => {
       </h2>
       <div className="row g-4 mt-5">
         {catItems.map((item) => {
-          return <CateygoryCard key={item._id} item={item} />;
+          return (
+            <CateygoryCard key={item._id} item={item} setProduct={setProduct} />
+          );
         })}
       </div>
+      {product && <BookingModal product={product} />}
     </div>
   );
 };

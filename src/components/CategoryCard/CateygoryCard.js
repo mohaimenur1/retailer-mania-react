@@ -1,7 +1,7 @@
 import React from "react";
 import "./CategoryCard.css";
 
-const CateygoryCard = ({ item }) => {
+const CateygoryCard = ({ item, setProduct }) => {
   return (
     <div className="col-lg-4">
       <div className="card h-100 shadow-lg">
@@ -16,7 +16,15 @@ const CateygoryCard = ({ item }) => {
           <span>Use Year: {item.useyear}</span>
           <span>Seller Name: {item.sellername}</span>
           <div className="card-btn">
-            <a className="btn btn-primary w-100 rounded-pill">Book now</a>
+            <button
+              type="button"
+              onClick={() => setProduct(item)}
+              className="btn btn-primary w-100 rounded-pill"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Book now
+            </button>
           </div>
         </div>
       </div>
