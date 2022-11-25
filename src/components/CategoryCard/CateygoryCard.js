@@ -16,7 +16,7 @@ const CateygoryCard = ({ item }) => {
           <span>Use Year: {item.useyear}</span>
           <span>Seller Name: {item.sellername}</span>
           <div className="card-btn">
-            <a className="btn btn-primary w-100">Book now</a>
+            <a className="btn btn-primary w-100 rounded-pill">Book now</a>
           </div>
         </div>
       </div>
