@@ -1,14 +1,32 @@
 [
   {
-    "title": "Dell",
-    "img": "https://raw.githubusercontent.com/mohaimenur1/demo/main/dell.png"
+    "title": "Dell-Inspiration-2743",
+    "img": "https://www.startech.com.bd/image/cache/catalog/laptop/dell/latitude-14-3420/latitude-3420-01-500x500.jpg",
+    "location": "Mirpur,Dhaka",
+    "category-id": "637f4e804600a435c16aabfe",
+    "resale-price": 20,
+    "original-price": 45,
+    "use-year": 3,
+    "seller-name": "faiaz"
   },
   {
-    "title": "Hp",
-    "img": "https://raw.githubusercontent.com/mohaimenur1/demo/main/hp.png"
+    "title": "Dell-Latitude-574",
+    "img": "https://i.bikroy-st.com/dell-3180-6th-gen-laptop-low-price-for-sale-dhaka/937cc7cd-e008-4b73-b04d-6ed5e2bc8513/620/466/fitted.jpg",
+    "location": "Mirjapur,Tangail",
+    "category-id": "637f4e804600a435c16aabfe",
+    "resale-price": 10,
+    "original-price": 35,
+    "use-year": 5,
+    "seller-name": "rahi"
   },
   {
-    "title": "Lenovo",
-    "img": "https://raw.githubusercontent.com/mohaimenur1/demo/main/dell.png"
+    "title": "Dell-Rog-360",
+    "img": "https://i.bikroy-st.com/dell-core-i34th-gen-for-sale-sylhet-division/456f8fe4-7e4c-46a6-b5e3-d050578b6145/620/466/fitted.jpg",
+    "location": "Sirajgonj,Dhaka",
+    "category-id": "637f4e804600a435c16aabfe",
+    "resale-price": 25,
+    "original-price": 40,
+    "use-year": 6,
+    "seller-name": "kanon"
   }
 ]

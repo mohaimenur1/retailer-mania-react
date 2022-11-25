@@ -1,24 +1,27 @@
 /** @format */
 
-import { createBrowserRouter } from 'react-router-dom';
-import Main from '../layout/Main';
-import Category from '../Page/Category/Category';
-import HomePage from '../Page/HomePage/HomePage';
+import { createBrowserRouter } from "react-router-dom";
+import Main from "../layout/Main";
+import Category from "../Page/Category/Category";
+import HomePage from "../Page/HomePage/HomePage";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Main />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <HomePage />,
         loader: async () => {
-          return fetch('http://localhost:5000/category');
+          return fetch("http://localhost:5000/category");
         },
       },
       {
-        path: '/category/:id',
+        path: "/category/:id",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/category/${params.id}`);
+        },
         element: <Category />,
       },
 
