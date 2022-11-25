@@ -4,6 +4,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Category from "../Page/Category/Category";
 import HomePage from "../Page/HomePage/HomePage";
+import Login from "../Page/Login/Login";
+import Register from "../Page/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -22,13 +25,20 @@ export const router = createBrowserRouter([
         loader: async ({ params }) => {
           return fetch(`http://localhost:5000/category/${params.id}`);
         },
-        element: <Category />,
+        element: (
+          <PrivateRoute>
+            <Category />
+          </PrivateRoute>
+        ),
       },
-
-      //   {
-      //     path: '/services',
-      //     element: <Services />,
-      //   },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
 ]);
