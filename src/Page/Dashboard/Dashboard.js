@@ -1,38 +1,58 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/UserContext";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+
+  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+
+  const { data: bookings = [] } = useQuery({
+    queryKey: ["bookings", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+      // console.log(data);
+    },
+  });
   return (
     <div className="">
-      <div class="mt-3">
+      <div className="mt-3">
         <h3>My Bookings</h3>
-        <div class="shadow-lg rounded">
-          <table class="table">
+        <div className="shadow-lg rounded">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Image</th>
+                <th scope="col">Ttile</th>
+                <th scope="col">Price</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              {bookings.map((booking, i) => (
+                <tr key={booking._id}>
+                  <th scope="row">{i + 1}</th>
+                  <td>
+                    {" "}
+                    <img
+                      className="img-fluid rounded-4"
+                      src={booking.img}
+                      alt=""
+                      style={{ widht: "3rem", height: "3rem" }}
+                    />
+                  </td>
+                  <td>{booking.producttitle}</td>
+                  <td>{booking.price}</td>
+                  <td>
+                    <Link to="/dashboard/payment" className="btn btn-primary">
+                      Pay
+                    </Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

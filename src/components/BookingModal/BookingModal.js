@@ -24,6 +24,7 @@ const BookingModal = ({ product }) => {
       price,
       meetingpalace,
       userId: product._id,
+      img: product.img,
     };
     fetch("http://localhost:5000/bookings", {
       method: "POST",

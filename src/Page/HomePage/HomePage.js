@@ -15,14 +15,14 @@ const HomePage = () => {
   return (
     <div className="container">
       <div className="banner-section mt-5">
-        <div class="h-100 p-5 text-bg-dark rounded-3 banner-bg row g-3">
+        <div className="h-100 p-5 text-bg-dark rounded-3 banner-bg row g-3">
           <div className="col-lg-6 d-flex flex-column justify-content-center">
             <h2>Retailer Mania</h2>
             <p>
               We are Retailer.If you need to import extra amount of laptop for
               your business we are here for you.
             </p>
-            <button class="btn btn-outline-light" type="button">
+            <button className="btn btn-outline-light" type="button">
               Contact with us
             </button>
           </div>
@@ -129,26 +129,26 @@ const HomePage = () => {
       {/* jumbotron */}
       <div className="row g-5">
         <h2 className="text-center">Beyond Those</h2>
-        <div class="col-lg-6">
-          <div class="h-100 p-5 text-light jumbotrona-bg rounded-3">
+        <div className="col-lg-6">
+          <div className="h-100 p-5 text-light jumbotrona-bg rounded-3">
             <h2>Get Your Favourite one!</h2>
             <p>
               Available Stock with good quality products. Get your expected one
               and make your life more easier from today.
             </p>
-            <button class="btn btn-outline-light" type="button">
+            <button className="btn btn-outline-light" type="button">
               See Categories
             </button>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="h-100 p-5 text-light rounded-3 jumbotrona-bg-1">
+        <div className="col-lg-6">
+          <div className="h-100 p-5 text-light rounded-3 jumbotrona-bg-1">
             <h2>Brand Sececond Hand Laptops</h2>
             <p>
               We are Retailer.If you need to import extra amount of laptop for
               your business we are here for you.
             </p>
-            <button class="btn btn-outline-light" type="button">
+            <button className="btn btn-outline-light" type="button">
               Contact with us
             </button>
           </div>
