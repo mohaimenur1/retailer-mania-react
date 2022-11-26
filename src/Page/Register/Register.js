@@ -30,12 +30,11 @@ const Register = () => {
           displayName: data.name,
         };
 
-        // updateUserProfile(userInfo)
-        //   .then(() => {
-        //     // saveUser(data.name, data.email);
-        //     navigate("/");
-        //   })
-        //   .catch((err) => console.error(err));
+        updateUserProfile(userInfo)
+          .then(() => {
+            saveUser(data.name, data.email);
+          })
+          .catch((err) => console.error(err));
       })
       .catch((err) => {
         console.error(err);
@@ -43,24 +42,24 @@ const Register = () => {
       });
   };
 
-  //   const saveUser = (name, email) => {
-  //     const user = {
-  //       name,
-  //       email,
-  //     };
-  //     fetch('http://localhost:5000/users', {
-  //       method: 'POST',
-  //       headers: {
-  //         'content-type': 'application/json',
-  //       },
-  //       body: JSON.stringify(user),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         navigate('/');
-  //       });
-  //   };
+  const saveUser = (name, email) => {
+    const user = {
+      name,
+      email,
+    };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/");
+      });
+  };
 
   return (
     <div className="container card p-5 mt-5">
