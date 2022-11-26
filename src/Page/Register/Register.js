@@ -126,6 +126,31 @@ const Register = () => {
           )}
         </div>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label className="form-check-label" for="flexRadioDefault2">
+            User
+          </label>
+        </div>
+
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label className="form-check-label" for="flexRadioDefault1">
+            Seller
+          </label>
+        </div>
+
         <div className="mb-3">
           <p className="text-center" htmlFor="exampleCheck1">
             <Link to="/login">Already have an account?</Link>

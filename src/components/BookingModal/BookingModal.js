@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/UserContext";
+import toast from "react-hot-toast";
 
 const BookingModal = ({ product }) => {
   console.log(product);
@@ -24,18 +25,17 @@ const BookingModal = ({ product }) => {
       meetingpalace,
       userId: product._id,
     };
-    // fetch("http://localhost:5000/bookings", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(booking),
-    // }).then((data) => {
-    //   console.log(data);
-    //   setTreatment(null);
-    //   toast("Booking confirm.");
-    //   refetch();
-    // });
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    }).then((data) => {
+      console.log(data);
+      toast("Booking confirm.");
+      e.target.reset();
+    });
 
     console.log(booking);
   };

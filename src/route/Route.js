@@ -1,8 +1,10 @@
 /** @format */
 
 import { createBrowserRouter } from "react-router-dom";
+import DashboradLayout from "../layout/DashboradLayout";
 import Main from "../layout/Main";
 import Category from "../Page/Category/Category";
+import Dashboard from "../Page/Dashboard/Dashboard";
 import HomePage from "../Page/HomePage/HomePage";
 import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
@@ -38,6 +40,20 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboradLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
     ],
   },
