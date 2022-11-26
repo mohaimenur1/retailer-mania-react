@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/UserContext";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
   const {
@@ -14,8 +15,13 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const { registerUser, updateUserProfile } = useContext(AuthContext);
-
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
+
+  // if (token) {
+  //   navigate("/");
+  // }
 
   const handleRegister = (data) => {
     console.log(data);
@@ -56,19 +62,8 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        getUserToken(email);
-      });
-  };
-
-  const getUserToken = (email) => {
-    fetch(`http://localhost:5000/jwt?email=${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.accessToken) {
-          localStorage.setItem("accessToken", data.accessToken);
-          navigate("/");
-        }
+        console.log(data);
+        // setCreatedUserEmail(email);
       });
   };
 

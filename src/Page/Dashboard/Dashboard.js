@@ -11,7 +11,11 @@ const Dashboard = () => {
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
       // console.log(data);
@@ -32,27 +36,28 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {bookings.map((booking, i) => (
-                <tr key={booking._id}>
-                  <th scope="row">{i + 1}</th>
-                  <td>
-                    {" "}
-                    <img
-                      className="img-fluid rounded-4"
-                      src={booking.img}
-                      alt=""
-                      style={{ widht: "3rem", height: "3rem" }}
-                    />
-                  </td>
-                  <td>{booking.producttitle}</td>
-                  <td>{booking.price}</td>
-                  <td>
-                    <Link to="/dashboard/payment" className="btn btn-primary">
-                      Pay
-                    </Link>
-                  </td>
-                </tr>
-              ))}
+              {bookings &&
+                bookings?.map((booking, i) => (
+                  <tr key={booking._id}>
+                    <th scope="row">{i + 1}</th>
+                    <td>
+                      {" "}
+                      <img
+                        className="img-fluid rounded-4"
+                        src={booking.img}
+                        alt=""
+                        style={{ widht: "3rem", height: "3rem" }}
+                      />
+                    </td>
+                    <td>{booking.producttitle}</td>
+                    <td>{booking.price}</td>
+                    <td>
+                      <Link to="/dashboard/payment" className="btn btn-primary">
+                        Pay
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
