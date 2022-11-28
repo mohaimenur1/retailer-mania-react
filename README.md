@@ -2,7 +2,7 @@
 
 # REtailer Mania
 
-Live website link [Retailer Mania]().
+Live website link [Retailer Mania](https://reatilermaina.web.app/).
 
 ## Project Description
 
@@ -38,3 +38,10 @@ Technologies:
 1. RESTful APIs = Express Js
 2. Allow Access with Middleware = Cors Node.js package
 3. Backend Hosting = Vercel
+
+--
+
+## Admin Role
+
+- adminEmail: <mohi@gmail.com>
+- adminPassword: <Rahi@1>
