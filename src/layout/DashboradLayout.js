@@ -19,7 +19,7 @@ const DashboradLayout = () => {
       <Navbar />
       <div className="container">
         <div className="row">
-          <div className="col-lg-3">
+          <div className="col-lg-3 mb-5">
             <div className="rounded mt-3 shadow-lg p-4">
               <h3>Dashboard</h3>
               <hr />
@@ -33,6 +33,18 @@ const DashboradLayout = () => {
                     className="card p-3 mt-3 underline-none"
                   >
                     All Users
+                  </Link>
+                  <Link
+                    to="/dashboard/allsellers"
+                    className="card p-3 mt-3 underline-none"
+                  >
+                    All Seller
+                  </Link>
+                  <Link
+                    to="/dashboard/allbuyers"
+                    className="card p-3 mt-3 underline-none"
+                  >
+                    All Buyers
                   </Link>
                 </>
               )}
