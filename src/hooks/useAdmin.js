@@ -1,5 +1,7 @@
 /** @format */
 
+//admin route
+
 import { useEffect, useState } from 'react';
 
 const useAdmin = (email) => {
