@@ -9,6 +9,7 @@ import Category from '../Page/Category/Category';
 import Dashboard from '../Page/Dashboard/Dashboard';
 import HomePage from '../Page/HomePage/HomePage';
 import Login from '../Page/Login/Login';
+import ManageSeller from '../Page/ManageSeller/ManageSeller';
 import Payment from '../Page/Payment/Payment';
 import Register from '../Page/Register/Register';
 import AdminRoute from './AdminRoute';
@@ -72,6 +73,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddSeller />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: '/dashboard/managerseller',
+        element: (
+          <AdminRoute>
+            <ManageSeller />
           </AdminRoute>
         ),
       },

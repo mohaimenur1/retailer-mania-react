@@ -34,6 +34,12 @@ const DashboradLayout = () => {
                   >
                     Add Seller
                   </Link>
+                  <Link
+                    to='/dashboard/managerseller'
+                    className='card p-3 mt-3 underline-none'
+                  >
+                    Manage Seller
+                  </Link>
                 </>
               )}
             </div>
