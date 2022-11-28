@@ -14,6 +14,7 @@ import Payment from '../Page/Payment/Payment';
 import Register from '../Page/Register/Register';
 import AdminRoute from './AdminRoute';
 import PrivateRoute from './PrivateRoute';
+import SellerRoute from './SellerRoute';
 
 export const router = createBrowserRouter([
   {
@@ -69,19 +70,27 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/dashboard/addseller',
+        path: '/dashboard/allsellers',
         element: (
           <AdminRoute>
-            <AddSeller />
+            <AllUsers />
           </AdminRoute>
+        ),
+      },
+      {
+        path: '/dashboard/addseller',
+        element: (
+          <SellerRoute>
+            <AddSeller />
+          </SellerRoute>
         ),
       },
       {
         path: '/dashboard/managerseller',
         element: (
-          <AdminRoute>
+          <SellerRoute>
             <ManageSeller />
-          </AdminRoute>
+          </SellerRoute>
         ),
       },
       {

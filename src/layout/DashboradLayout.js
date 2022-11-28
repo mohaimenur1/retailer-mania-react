@@ -5,11 +5,14 @@ import Navbar from '../components/Navbar/Navbar';
 import { Link, Outlet } from 'react-router-dom';
 import './DashboardLayout.css';
 import useAdmin from '../hooks/useAdmin';
+
 import { AuthContext } from '../context/UserContext';
+import useSeller from '../hooks/useSeller';
 
 const DashboradLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email);
   return (
     <div>
       <Navbar />
@@ -28,20 +31,26 @@ const DashboradLayout = () => {
                   >
                     All Users
                   </Link>
-                  <Link
-                    to='/dashboard/addseller'
-                    className='card p-3 mt-3 underline-none'
-                  >
-                    Add Products
-                  </Link>
-                  <Link
-                    to='/dashboard/managerseller'
-                    className='card p-3 mt-3 underline-none'
-                  >
-                    My Products
-                  </Link>
                 </>
               )}
+              <div>
+                {isSeller && (
+                  <>
+                    <Link
+                      to='/dashboard/addseller'
+                      className='card p-3 mt-3 underline-none'
+                    >
+                      Add Products
+                    </Link>
+                    <Link
+                      to='/dashboard/managerseller'
+                      className='card p-3 mt-3 underline-none'
+                    >
+                      My Products
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
           <div className='col-lg-9'>
