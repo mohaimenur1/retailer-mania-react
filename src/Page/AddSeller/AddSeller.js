@@ -44,13 +44,19 @@ const AddSeller = () => {
         if (imgData.success) {
           console.log(imgData.data.url);
           const seller = {
-            name: data.name,
+            title: data.name,
             email: data.email,
-            category: data.add,
-            image: imgData.data.url,
+            price: data.price,
+            categoryid: data.add,
+            img: imgData.data.url,
+            location: data.location,
+            productcondition: data.condtion,
+            mobilenumber: data.phone,
+            description: data.descriptioin,
+            purchaseyear: data.pyear,
           };
           //save seller info to the database
-          fetch('http://localhost:5000/sellers', {
+          fetch('http://localhost:5000/category', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -83,13 +89,13 @@ const AddSeller = () => {
   }
   return (
     <div className='mt-2'>
-      <h2>AddSeller</h2>
+      <h2>Add Product</h2>
       <div className='container card p-5 mt-5'>
-        <h2 className='text-center display-5 fw-semibold'>Add Seller</h2>
+        <h2 className='text-center display-5 fw-semibold'>Add Product</h2>
         <form onSubmit={handleSubmit(handleAddDoctor)}>
           <div className='mb-3'>
             <label htmlFor='exampleInputEmail1' className='form-label'>
-              name
+              Product Title
             </label>
             <input
               {...register('name', { required: 'please provide name' })}
@@ -123,9 +129,94 @@ const AddSeller = () => {
               </p>
             )}
           </div>
+
+          {/* condtion type */}
           <div className='mb-3'>
             <label htmlFor='exampleInputPassword1' className='form-label'>
-              Category
+              Product condition
+            </label>
+            <select
+              {...register('condtion')}
+              className='form-select'
+              aria-label='Default select example'
+            >
+              <option selected>Select Condition</option>
+
+              <option value='Excelent'>Excelent</option>
+              <option value='Good'>Good</option>
+              <option value='fair'>Fair</option>
+              {/* {categoryItems.map((category) => (
+                <option key={category._id} value={category.title}>
+                  {category.title}
+                </option>
+              ))} */}
+            </select>
+          </div>
+
+          {/* location */}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputEmail1' className='form-label'>
+              Location
+            </label>
+            <input
+              {...register('location', {
+                required: 'Plase Provide Location.',
+              })}
+              type='text'
+              className='form-control'
+              id='exampleInputEmail2'
+              aria-describedby='emailHelp'
+            />
+            {errors.location && (
+              <p className='text-danger' role='alert'>
+                {errors.location.message}
+              </p>
+            )}
+          </div>
+          {/* price */}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputEmail1' className='form-label'>
+              Price
+            </label>
+            <input
+              {...register('price', {
+                required: 'Plase Provide price.',
+              })}
+              type='text'
+              className='form-control'
+              id='exampleInputEmail2'
+              aria-describedby='emailHelp'
+            />
+            {errors.price && (
+              <p className='text-danger' role='alert'>
+                {errors.price.message}
+              </p>
+            )}
+          </div>
+          {/* mobile number */}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputEmail1' className='form-label'>
+              Mobile Number
+            </label>
+            <input
+              {...register('phone', {
+                required: 'Plase Provide price.',
+              })}
+              type='text'
+              className='form-control'
+              id='exampleInputEmail2'
+              aria-describedby='emailHelp'
+            />
+            {errors.phone && (
+              <p className='text-danger' role='alert'>
+                {errors.phone.message}
+              </p>
+            )}
+          </div>
+          {/* product category */}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputPassword1' className='form-label'>
+              Product Category
             </label>
             <select
               {...register('add')}
@@ -134,13 +225,57 @@ const AddSeller = () => {
             >
               <option selected>Select Category</option>
 
-              {categoryItems.map((category) => (
+              <option value='637f4e804600a435c16aabfe'>Dell</option>
+              <option value='637f4e804600a435c16aabff'>Hp</option>
+              <option value='637f4e804600a435c16aac00'>Lenovo</option>
+              {/* {categoryItems.map((category) => (
                 <option key={category._id} value={category.title}>
                   {category.title}
                 </option>
-              ))}
+              ))} */}
             </select>
           </div>
+          {/* Year of purchase*/}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputEmail1' className='form-label'>
+              Purchase Year
+            </label>
+            <input
+              {...register('pyear', {
+                required: 'Plase Provide pyear.',
+              })}
+              type='text'
+              className='form-control'
+              id='exampleInputEmail2'
+              aria-describedby='emailHelp'
+            />
+            {errors.pyear && (
+              <p className='text-danger' role='alert'>
+                {errors.pyear.message}
+              </p>
+            )}
+          </div>
+          {/* desciptiion*/}
+          <div className='mb-3'>
+            <label htmlFor='exampleInputEmail1' className='form-label'>
+              Description
+            </label>
+            <input
+              {...register('descriptioin', {
+                required: 'Plase Provide price.',
+              })}
+              type='text'
+              className='form-control'
+              id='exampleInputEmail2'
+              aria-describedby='emailHelp'
+            />
+            {errors.descriptioin && (
+              <p className='text-danger' role='alert'>
+                {errors.descriptioin.message}
+              </p>
+            )}
+          </div>
+
           <div className='mb-3'>
             <label htmlFor='exampleInputEmail1' className='form-label'>
               Photo

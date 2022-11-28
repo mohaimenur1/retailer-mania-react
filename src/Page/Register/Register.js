@@ -28,7 +28,7 @@ const Register = () => {
   const handleRegister = (data) => {
     console.log(data);
     setErrorMessage('');
-    registerUser(data.email, data.password)
+    registerUser(data.email, data.password, data.role)
       .then((result) => {
         const user = result.user;
         toast('User Created Successfully');
@@ -40,7 +40,7 @@ const Register = () => {
 
         updateUserProfile(userInfo)
           .then(() => {
-            saveUser(data.name, data.email);
+            saveUser(data.name, data.email, data.role);
           })
           .catch((err) => console.error(err));
       })
@@ -50,10 +50,11 @@ const Register = () => {
       });
   };
 
-  const saveUser = (name, email) => {
+  const saveUser = (name, email, role) => {
     const user = {
       name,
       email,
+      role,
     };
     fetch('http://localhost:5000/users', {
       method: 'POST',
@@ -147,29 +148,18 @@ const Register = () => {
           )}
         </div>
         {errorMessage && <p className='text-danger'>{errorMessage}</p>}
-        <div className='form-check'>
-          <input
-            className='form-check-input'
-            type='radio'
-            name='flexRadioDefault'
-            id='flexRadioDefault2'
-            checked
-          />
-          <label className='form-check-label' for='flexRadioDefault2'>
-            User
-          </label>
-        </div>
-
-        <div className='form-check'>
-          <input
-            className='form-check-input'
-            type='radio'
-            name='flexRadioDefault'
-            id='flexRadioDefault1'
-          />
-          <label className='form-check-label' for='flexRadioDefault1'>
-            Seller
-          </label>
+        <div>
+          <label htmlFor=''>Select User Type</label>
+          <select
+            {...register('role', { required: 'Plase Select the type.' })}
+            className='form-select'
+            aria-label='Default select example'
+          >
+            <option selected value='user'>
+              User
+            </option>
+            <option value='seller'>Seller</option>
+          </select>
         </div>
 
         <div className='mb-3'>
