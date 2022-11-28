@@ -1,10 +1,11 @@
 /** @format */
 
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 
 const AddSeller = () => {
   const {
@@ -12,6 +13,9 @@ const AddSeller = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { user } = useContext(AuthContext);
+
   const imageHotKey = process.env.REACT_APP_imgbb_key;
 
   const navigate = useNavigate();
@@ -297,7 +301,7 @@ const AddSeller = () => {
 
           {/* <p>{data}</p> */}
           <button type='submit' className='btn btn-primary'>
-            Add Seller
+            Add Product
           </button>
         </form>
       </div>

@@ -32,13 +32,13 @@ const DashboradLayout = () => {
                     to='/dashboard/addseller'
                     className='card p-3 mt-3 underline-none'
                   >
-                    Add Seller
+                    Add Products
                   </Link>
                   <Link
                     to='/dashboard/managerseller'
                     className='card p-3 mt-3 underline-none'
                   >
-                    Manage Seller
+                    My Products
                   </Link>
                 </>
               )}
