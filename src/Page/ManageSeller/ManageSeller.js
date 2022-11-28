@@ -1,20 +1,20 @@
 /** @format */
 
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { AuthContext } from '../../context/UserContext';
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/UserContext";
 
 const ManageSeller = () => {
   const { user } = useContext(AuthContext);
   const { data: products = [] } = useQuery({
-    queryKey: ['products', user?.email],
+    queryKey: ["products", user?.email],
     queryFn: async () => {
       //   try {
       const res = await fetch(
-        `http://localhost:5000/products?email=${user?.email}`,
+        `https://y-tau-blond.vercel.app/products?email=${user?.email}`,
         {
           headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`,
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
           },
         }
       );
@@ -24,26 +24,26 @@ const ManageSeller = () => {
     },
   });
   return (
-    <div className='mt-2'>
-      <div className=''>
-        <div className='mt-3'>
+    <div className="mt-2">
+      <div className="">
+        <div className="mt-3">
           <h2>My Products</h2>
-          <div className='shadow-lg rounded'>
-            <table className='table'>
+          <div className="shadow-lg rounded">
+            <table className="table">
               <thead>
                 <tr>
-                  <th scope='col'></th>
-                  <th scope='col'>Title</th>
-                  <th scope='col'>Price</th>
-                  <th scope='col'>Status</th>
-                  <th scope='col'>Action</th>
+                  <th scope="col"></th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {products &&
                   products?.map((product, i) => (
                     <tr key={i}>
-                      <th scope='row'>{i + 1}</th>
+                      <th scope="row">{i + 1}</th>
                       {/* <td>
                       {" "}
                       <img
@@ -56,12 +56,12 @@ const ManageSeller = () => {
                       <td>{product.title}</td>
                       <td>{product.price}</td>
                       <td>
-                        <button className='btn btn-primary btn-sm'>
+                        <button className="btn btn-primary btn-sm">
                           Status
                         </button>
                       </td>
                       <td>
-                        <button className='btn btn-danger btn-sm'>
+                        <button className="btn btn-danger btn-sm">
                           Delete
                         </button>
                       </td>

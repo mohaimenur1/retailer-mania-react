@@ -16,7 +16,9 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-bg shadow-sm rounded">
         <div className="container">
-          <Link className="navbar-brand fw-semibold">Navbar</Link>
+          <Link to="/" className="navbar-brand fw-semibold">
+            Retailer Mnia
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
         loader: async () => {
-          return fetch("http://localhost:5000/category");
+          return fetch("https://y-tau-blond.vercel.app/category");
         },
       },
       {
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       {
         path: "/category/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/category/${params.id}`);
+          return fetch(`https://y-tau-blond.vercel.app/category/${params.id}`);
         },
         element: (
           <PrivateRoute>

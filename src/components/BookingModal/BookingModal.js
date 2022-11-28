@@ -26,7 +26,7 @@ const BookingModal = ({ product }) => {
       userId: product._id,
       img: product.img,
     };
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://y-tau-blond.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
