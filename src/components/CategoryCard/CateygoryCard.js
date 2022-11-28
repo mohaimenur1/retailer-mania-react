@@ -10,11 +10,11 @@ const CateygoryCard = ({ item, setProduct }) => {
         </div>
         <div className="card-body">
           <h5 className="card-title">{item.title}</h5>
-          <p className="card-text">{item.location}</p>
-          <span>Resale Price: {item.resaleprice}</span>
-          <span>Original Price: {item.originalprice}</span>
-          <span>Use Year: {item.useyear}</span>
-          <span>Seller Name: {item.sellername}</span>
+          <p className="card-text fw-bold">Location: {item.location}</p>
+          <p>Resale Price: {item.price}</p>
+          <p>Original Price: 60k</p>
+          <p>Purchase Year: {item.purchaseyear}</p>
+          {/* <span>Seller Name: {item.sellername}</span> */}
           <div className="card-btn">
             <button
               type="button"
