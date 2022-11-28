@@ -23,7 +23,9 @@ const DashboradLayout = () => {
             <div className="rounded mt-3 shadow-lg p-4">
               <h3>Dashboard</h3>
               <hr />
-              <Link className="card p-3 mt-3 underline-none">Home</Link>
+              <Link to="/" className="card p-3 mt-3 underline-none">
+                Home
+              </Link>
               {isAdmin && (
                 <>
                   <Link
